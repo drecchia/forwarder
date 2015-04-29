@@ -1,13 +1,14 @@
 # Docker Forwarder
 Docker container that create DNATs between host network and containers internal network (Weave). 
 
-Cenario
--------
+Scene
+-----
 NOTE: This cenario/container suppose that all docker are in a common private network ( the under technologies are made transparent by Weave tunnel). Ex: D3 can ping D4 before using the FORWARDER.
     
     D1,D2,D3 - Host1 - Network AWS ----------- NET --------- Network Company A - Host2 - D4,D5,FORWARDER
     You can inject traffic into D4 and it will be routed to D1.
     You can inject traffic into D1 and it will be routed to D4.
+    If you need to bind D1 port to host, but you cant reboot D1 right now, you can direct traffic using Forwarder.
     You dont need to public expose ports on Network AWS if your customers are inside Company A.
     Company A has a direct link with Company B and dockers from AWS Network cant access it.
     
