@@ -1,8 +1,6 @@
 # Docker Forwarder
 Docker container that create DNATs between host network and containers internal network (Weave). 
 
-Internal docker hostnames are resolved in runtime, just link containers when running.
-
 Cenario
 -------
 NOTE: This cenario/container suppose that all docker are in a common private network ( the under technologies are made transparent by Weave tunnel). Ex: D3 can ping D4 before using the FORWARDER.
@@ -24,6 +22,9 @@ NOTE: Every variable must receive the same number of parameters, use comma as de
 
 Running with hostnames
 ----------------------
+
+NOTE: Internal docker hostnames are resolved at runtime, just link containers when running.
+
     docker pull drecchia/forwarder:latest
     docker run --privileged -e LISTEN_PORT=80,81 -e LISTEN_PROTO=tcp,tcp -e TARGET=internalName,internalName -e TARGET_PORT=80,80 -link parentContainer:internalName -d drecchia/forwarder:latest
     
