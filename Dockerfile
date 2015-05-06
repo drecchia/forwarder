@@ -13,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     iptables 
 
 ADD files/runme.sh /runme.sh
+ADD files/iptables.sh /iptables.sh
 
-RUN chmod +x /runme.sh
+RUN chmod +x /*.sh
 
 ENTRYPOINT /runme.sh 
